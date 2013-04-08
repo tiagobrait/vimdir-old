@@ -1,0 +1,39 @@
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundle/tlib_vim"]
+	path = bundle/tlib_vim
+	url = git://github.com/tomtom/tlib_vim.git
+[submodule "bundle/vim-addon-mw-utils"]
+	path = bundle/vim-addon-mw-utils
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = git://github.com/honza/vim-snippets.git
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = git://github.com/garbas/vim-snipmate.git
+[submodule "bundle/vim-git"]
+	path = bundle/vim-git
+	url = git://github.com/tpope/vim-git.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
+[submodule "bundle/simple-pairs"]
+	path = bundle/simple-pairs
+	url = git://github.com/vim-scripts/simple-pairs.git
+[submodule "bundle/python-mode"]
+	path = bundle/python-mode
+	url = git://github.com/klen/python-mode.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://git.wincent.com/command-t.git
