@@ -63,8 +63,8 @@ set hlsearch
 set wrap
 "wrapping limit
 set textwidth=80
-"highlight column 80
-set colorcolumn=80
+"highlight column 81
+set colorcolumn=81
 "formatting stuff, go see the online help
 set formatoptions+=tcrqn1
 
@@ -131,6 +131,9 @@ imap <leader>l <ESC>:TagbarToggle<cr>i
 
 "Disable Syntastic active checking for python:
 let g:syntastic_mode_map = { 'mode': 'active','passive_filetypes': ['python'] }
+
+"disable python-mode folding
+let g:pymode_folding=0
 
 "snippets information
 let g:snips_author='Tiago Polizelli Brait'
