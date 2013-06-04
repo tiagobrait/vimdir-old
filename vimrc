@@ -60,13 +60,15 @@ set smartcase
 set incsearch
 set hlsearch
 "line wrapping
-set wrap
+set nowrap
 "wrapping limit
 set textwidth=80
 "highlight column 81
 set colorcolumn=81
 "formatting stuff, go see the online help
-set formatoptions+=tcrqn1
+set formatoptions+=crqn1
+
+set nobackup
 
 "turn off highlighting 
 nnoremap <leader><space> :noh<cr>
