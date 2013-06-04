@@ -60,7 +60,7 @@ set smartcase
 set incsearch
 set hlsearch
 "line wrapping
-set nowrap
+set wrap
 "wrapping limit
 set textwidth=80
 "highlight column 81
