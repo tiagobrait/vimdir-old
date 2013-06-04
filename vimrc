@@ -66,7 +66,7 @@ set textwidth=80
 "highlight column 81
 set colorcolumn=81
 "formatting stuff, go see the online help
-set formatoptions+=crqn1
+set formatoptions+=rqn1
 
 set nobackup
 
