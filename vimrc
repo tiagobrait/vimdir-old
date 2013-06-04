@@ -62,13 +62,15 @@ set hlsearch
 "line wrapping
 set wrap
 "wrapping limit
-set textwidth=80
+set textwidth=0
 "highlight column 81
 set colorcolumn=81
 "formatting stuff, go see the online help
 set formatoptions+=rqn1
 
 set nobackup
+set wrapmargin=0
+set nolinebreak
 
 "turn off highlighting 
 nnoremap <leader><space> :noh<cr>
