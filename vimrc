@@ -67,7 +67,8 @@ set textwidth=0
 set colorcolumn=81
 "formatting stuff, go see the online help
 set formatoptions+=rqn1
-
+"set clipboard
+set clipboard=unnamed
 set nobackup
 set wrapmargin=0
 set nolinebreak
