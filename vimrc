@@ -149,3 +149,5 @@ let g:author='Tiago Polizelli Brait'
 let g:company='Tiago Polizelli Brait'
 let g:email='tiagobrait@gmail.com'
 let g:github='https://github.com/tiagobrait'
+
+"just a test, think my git is fucked up for some reason
