@@ -52,3 +52,9 @@
 [submodule "bundle/vim-haml"]
 	path = bundle/vim-haml
 	url = https://github.com/tpope/vim-haml.git
+[submodule "bundle/seoul256"]
+	path = bundle/seoul256
+	url = https://github.com/junegunn/seoul256.vim.git
+[submodule "bundle/vim-colorscheme"]
+	path = bundle/vim-colorscheme
+	url = https://github.com/flazz/vim-colorschemes.git
