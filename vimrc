@@ -1,14 +1,19 @@
 "vimrc
-"2012 tiagobrait 
+"2012,2013 tiagobrait
 " (with some stuff borrowed from https://github.com/haridas/Dotfiles)
 
-"load pathogen plugin
+"ok, let's organize this stuff now
+
+
+"-PATHOGEN----------------------------------------------------------------------
 filetype off
 execute pathogen#infect()
 execute pathogen#helptags()
 filetype plugin indent on
 syntax on
+"-------------------------------------------------------------------------------
 
+"-OPTIONS-----------------------------------------------------------------------
 "use vim settings instead of vi
 set nocompatible
 "disable modelines (yuck!)
@@ -36,6 +41,12 @@ set ruler
 set backspace=indent,eol,start
 " always show a statusline
 set laststatus=2
+"and what a nice statusline
+set statusline=%1*[%n]%<%f\ %r%m                           "buffn,name,RO,change
+set statusline+=%2*%y[%{&ff}][%{&fenc!=''?&fenc:&enc}]     "type,format,encoding
+set statusline+=%6*%=                                      "L/R separator
+set statusline+=%3*[ln:\ %l\ of\ %L\ (%03p%%)]%4*[cl:\ %c] "lines and columns
+set statusline+=%5*[%P]%*                                  "percent
 "show linenumber
 set number
 "but not relative numbers though
@@ -50,11 +61,9 @@ set dictionary=/usr/share/dict/words
 "shortcut key to toggle pasting mode
 set pastetoggle=<F3>
 set backupskip=/tmp/*,/private/tmp/*
-"everyone has a mouse this days...
+"everyone has a mouse these days...
 set mouse=a
 "nice searching options
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase
 set smartcase
 set incsearch
@@ -69,25 +78,61 @@ set colorcolumn=81
 set formatoptions+=rqn1
 "set clipboard
 set clipboard=unnamed
+"disable those annoying backups
 set nobackup
+"where to start wrapping (# of chars from right margin)
 set wrapmargin=0
+"we don't want linebreaks...
 set nolinebreak
+" Removing scrollbars from gui mode
+if has("gui_running")
+    set guitablabel=%-0.12t%M
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
+    set guioptions+=a
+    set guioptions+=m
+    set listchars=tab:▸\ ,eol:¬
+else
+    set t_Co=256
+endif
+"-------------------------------------------------------------------------------
+"-HIGHLIGHTS--------------------------------------------------------------------
+"UserX highligths for statusbar
+hi User1 ctermfg=White ctermbg=DarkRed cterm=bold
+hi User2 ctermfg=White ctermbg=DarkYellow cterm=bold
+hi User3 ctermfg=White ctermbg=DarkBlue cterm=bold
+hi User4 ctermfg=White ctermbg=DarkMagenta cterm=bold
+hi User5 ctermfg=White ctermbg=DarkCyan cterm=bold
+hi User6 ctermfg=White ctermbg=DarkGrey cterm=bold
+"hi User7 ctermfg=White ctermbg=DarkGrey cterm=bold
+"hi User8 ctermfg=White ctermbg=DarkGrey cterm=bold
+"hi User9 ctermfg=White ctermbg=DarkGrey cterm=bold
+"-------------------------------------------------------------------------------
 
-"turn off highlighting 
+"-MAPPINGS----------------------------------------------------------------------
+"turn off highlighting
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
-vnoremap <tab> %
-
-au FocusLost * :wa
-
+nnoremap g; g;zz
+nnoremap / /\v
+vnoremap / /\v
 " <leader>ev Shortcut to edit .vimrc file on the fly on a vertical window.
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+"NERDTree
+nnoremap <C-n> :NERDTreeToggle<cr>
+vnoremap <tab> %
+"TagBar
+nmap <leader>l <ESC>:TagbarToggle<cr>
+imap <leader>l <ESC>:TagbarToggle<cr>i
+"-------------------------------------------------------------------------------
 
+"-AUTOCOMMANDS------------------------------------------------------------------
+au FocusLost * :wa
 " Working with split screen nicely
 " Resize Split When the window is resized"
 au VimResized * :wincmd =
-
-" Wildmenu completion "
+" Wildmenu completion
 set wildmenu
 set wildmode=list:longest
 set wildignore+=.hg,.git,.svn " Version Controls"
@@ -101,7 +146,6 @@ set wildignore+=*.luac "Lua byte code"
 set wildignore+=migrations "Django migrations"
 set wildignore+=*.pyc "Python Object codes"
 set wildignore+=*.orig "Merge resolution files"
-
 "Rebember the last cursor position
 augroup line_return
     au!
@@ -110,36 +154,14 @@ augroup line_return
         \ execute 'normal! g`"zvzz' |
         \ endif
 augroup END
+"-------------------------------------------------------------------------------
 
-nnoremap g; g;zz
-
-" Removing scrollbars
-if has("gui_running")
-    set guitablabel=%-0.12t%M
-    set guioptions-=T
-    set guioptions-=r
-    set guioptions-=L
-    set guioptions+=a
-    set guioptions+=m
-    set listchars=tab:▸\ ,eol:¬       
-else
-    set t_Co=256
-endif
-
-"NERDTree
-nnoremap <C-n> :NERDTreeToggle<cr>
+"-VARS--------------------------------------------------------------------------
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$']
-
-"TagBar
-nmap <leader>l <ESC>:TagbarToggle<cr>
-imap <leader>l <ESC>:TagbarToggle<cr>i
-
-"Disable Syntastic active checking for python:
+"disable Syntastic active checking for python:
 let g:syntastic_mode_map = { 'mode': 'active','passive_filetypes': ['python'] }
-
 "disable python-mode folding
 let g:pymode_folding=0
-
 "snippets information
 let g:snips_author='Tiago Polizelli Brait'
 let g:snips_company='Tiago Polizelli Brait'
@@ -149,5 +171,4 @@ let g:author='Tiago Polizelli Brait'
 let g:company='Tiago Polizelli Brait'
 let g:email='tiagobrait@gmail.com'
 let g:github='https://github.com/tiagobrait'
-
-"just a test, think my git is fucked up for some reason
+"-------------------------------------------------------------------------------

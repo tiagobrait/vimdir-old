@@ -1,0 +1,45 @@
+"vimpagerrc
+"2013 tiagobrait 
+
+"some useful options
+set nocompatible
+set ttyfast
+set laststatus=2
+set statusline=%Y%=\ line\ %l\ of\ %L\ (%P) 
+set shell=/bin/bash
+set lazyredraw
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+let vimpager_disable_x11=1
+let vimpager_passthrough = 1
+
+nnoremap <leader><space> :noh<cr>
+nnoremap / /\v
+vnoremap / /\v
+
+"custom highlights
+
+"man
+hi manTitle ctermfg=DarkMagenta cterm=bold
+hi manReference ctermfg=DarkMagenta cterm=bold
+hi manSectionHeading ctermfg=DarkBlue cterm=bold
+hi manSubHeading ctermfg=DarkGreen cterm=bold
+hi manOptionDesc ctermfg=DarkRed cterm=bold
+hi manLongOptionDesc ctermfg=DarkRed cterm=bold
+hi CFuncDefinition ctermfg=DarkBlue 
+
+"diff
+hi diffAdded ctermfg=DarkBlue cterm=bold
+hi diffFile ctermfg=DarkBlue cterm=bold
+hi diffOldfile ctermfg=DarkBlue cterm=bold
+hi diffRemoved ctermfg=DarkRed cterm=bold
+hi diffNewFile ctermfg=DarkRed cterm=bold
+hi diffLine ctermfg=Brown cterm=bold 
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
