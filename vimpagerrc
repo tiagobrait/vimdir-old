@@ -26,7 +26,7 @@ vnoremap / /\v
 hi manTitle ctermfg=DarkMagenta cterm=bold
 hi manReference ctermfg=DarkMagenta cterm=bold
 hi manSectionHeading ctermfg=DarkBlue cterm=bold
-hi manSubHeading ctermfg=DarkGreen cterm=bold
+hi manSubHeading ctermfg=Brown cterm=bold
 hi manOptionDesc ctermfg=DarkRed cterm=bold
 hi manLongOptionDesc ctermfg=DarkRed cterm=bold
 hi CFuncDefinition ctermfg=DarkBlue 
@@ -37,7 +37,7 @@ hi diffFile ctermfg=DarkBlue cterm=bold
 hi diffOldfile ctermfg=DarkBlue cterm=bold
 hi diffRemoved ctermfg=DarkRed cterm=bold
 hi diffNewFile ctermfg=DarkRed cterm=bold
-hi diffLine ctermfg=Brown cterm=bold 
+hi diffLine ctermfg=DarkMagenta cterm=bold 
 
 "map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 "\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"

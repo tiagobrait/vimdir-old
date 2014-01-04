@@ -1,5 +1,5 @@
 "vimrc
-"2012,2013 tiagobrait
+"2012,2013 tiagobrait 
 " (with some stuff borrowed from https://github.com/haridas/Dotfiles)
 
 "ok, let's organize this stuff now
@@ -45,7 +45,7 @@ set laststatus=2
 set statusline=%1*[%n]%<%f\ %r%m                           "buffn,name,RO,change
 set statusline+=%2*%y[%{&ff}][%{&fenc!=''?&fenc:&enc}]     "type,format,encoding
 set statusline+=%6*%=                                      "L/R separator
-set statusline+=%3*[ln:\ %l\ of\ %L\ (%03p%%)]%4*[cl:\ %c] "lines and columns
+set statusline+=%3*[ln:\ %l\ of\ %L\ (%3p%%)]%4*[cl:\ %c] "lines and columns
 set statusline+=%5*[%P]%*                                  "percent
 "show linenumber
 set number
@@ -92,7 +92,7 @@ if has("gui_running")
     set guioptions-=L
     set guioptions+=a
     set guioptions+=m
-    set listchars=tab:▸\ ,eol:¬
+    set listchars=tab:▸\ ,eol:¬       
 else
     set t_Co=256
 endif
@@ -103,15 +103,16 @@ hi User1 ctermfg=White ctermbg=DarkRed cterm=bold
 hi User2 ctermfg=White ctermbg=DarkYellow cterm=bold
 hi User3 ctermfg=White ctermbg=DarkBlue cterm=bold
 hi User4 ctermfg=White ctermbg=DarkMagenta cterm=bold
-hi User5 ctermfg=White ctermbg=DarkCyan cterm=bold
+hi User5 ctermfg=White ctermbg=DarkGreen cterm=bold
 hi User6 ctermfg=White ctermbg=DarkGrey cterm=bold
 "hi User7 ctermfg=White ctermbg=DarkGrey cterm=bold
 "hi User8 ctermfg=White ctermbg=DarkGrey cterm=bold
 "hi User9 ctermfg=White ctermbg=DarkGrey cterm=bold
+hi ColorColumn ctermbg=LightGray
 "-------------------------------------------------------------------------------
 
 "-MAPPINGS----------------------------------------------------------------------
-"turn off highlighting
+"turn off highlighting 
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 nnoremap g; g;zz
