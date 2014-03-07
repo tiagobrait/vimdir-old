@@ -28,9 +28,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
-[submodule "bundle/simple-pairs"]
-	path = bundle/simple-pairs
-	url = git://github.com/vim-scripts/simple-pairs.git
 [submodule "bundle/python-mode"]
 	path = bundle/python-mode
 	url = git://github.com/klen/python-mode.git
@@ -58,3 +55,6 @@
 [submodule "bundle/vim-colorscheme"]
 	path = bundle/vim-colorscheme
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "bundle/delimitMate"]
+	path = bundle/delimitMate
+	url = git://github.com/Raimondi/delimitMate.git
