@@ -94,12 +94,16 @@ if has("gui_running")
     set guioptions+=m
     set listchars=tab:▸\ ,eol:¬       
 else
-    set t_Co=256
+    if $TERM == "linux"
+        set t_Co=8
+    else
+        set t_Co=256
+    endif
 endif
 "-------------------------------------------------------------------------------
 "-HIGHLIGHTS--------------------------------------------------------------------
 "UserX highligths for statusbar
-hi User1 ctermfg=White ctermbg=DarkRed cterm=bold
+hi User1 ctermfg=Yellow ctermbg=DarkRed cterm=bold
 hi User2 ctermfg=White ctermbg=DarkYellow cterm=bold
 hi User3 ctermfg=White ctermbg=DarkBlue cterm=bold
 hi User4 ctermfg=White ctermbg=DarkMagenta cterm=bold
