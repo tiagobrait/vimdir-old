@@ -32,8 +32,8 @@
 	path = bundle/python-mode
 	url = git://github.com/klen/python-mode.git
 [submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = git://git.wincent.com/command-t.git
+    path = bundle/command-t
+    url = git://github.com/wincent/Command-T.git
 [submodule "bundle/HTML-AutoCloseTag"]
 	path = bundle/HTML-AutoCloseTag
 	url = git://github.com/vim-scripts/HTML-AutoCloseTag.git
