@@ -19,9 +19,9 @@ set nocompatible
 "disable modelines (yuck!)
 set modelines=0
 "much better identation settings
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set encoding=utf-8
 "show next 3 lines below the current one when scrolling
