@@ -1,5 +1,5 @@
 "vimrc
-"2012,2013 tiagobrait 
+"2012,2013 tiagobrait
 " (with some stuff borrowed from https://github.com/haridas/Dotfiles)
 
 "ok, let's organize this stuff now
@@ -27,8 +27,8 @@ set encoding=utf-8
 "show next 3 lines below the current one when scrolling
 set scrolloff=3
 set autoindent
-"show what mode we're in
-set showmode
+"don't show what mode we're in, let airline take care of it
+set noshowmode
 "show command in the last line
 set showcmd
 "hide buffers
@@ -42,11 +42,11 @@ set backspace=indent,eol,start
 " always show a statusline
 set laststatus=2
 "and what a nice statusline
-set statusline=%1*[%n]%<%f\ %r%m                           "buffn,name,RO,change
-set statusline+=%2*%y[%{&ff}][%{&fenc!=''?&fenc:&enc}]     "type,format,encoding
-set statusline+=%6*%=                                      "L/R separator
-set statusline+=%3*[ln:\ %l\ of\ %L\ (%3p%%)]%4*[cl:\ %c] "lines and columns
-set statusline+=%5*[%P]%*                                  "percent
+"set statusline=%1*[%n]%<%f\ %r%m                           "buffn,name,RO,change
+"set statusline+=%2*%y[%{&ff}][%{&fenc!=''?&fenc:&enc}]     "type,format,encoding
+"set statusline+=%6*%=                                      "L/R separator
+"set statusline+=%3*[ln:\ %l\ of\ %L\ (%3p%%)]%4*[cl:\ %c] "lines and columns
+"set statusline+=%5*[%P]%*                                  "percent
 "show linenumber
 set number
 "but not relative numbers though
@@ -84,6 +84,8 @@ set nobackup
 set wrapmargin=0
 "we don't want linebreaks...
 set nolinebreak
+"don't wait too much to complete when reading keycodes
+set ttimeoutlen=20
 " Removing scrollbars from gui mode
 if has("gui_running")
   set guifont=DejaVu\ Sans\ Mono\ 10
@@ -93,14 +95,17 @@ if has("gui_running")
   set guioptions-=L
   set guioptions+=a
   set guioptions+=m
-  set listchars=tab:▸\ ,eol:¬       
+  set listchars=tab:▸\ ,eol:¬
 else
-  if $TERM == "linux"
-    set t_Co=8
-  else
-    set t_Co=256
-  endif
+"  if $TERM == "linux"
+"    set t_Co=8
+"  else
+"    set t_Co=256
+"  endif
 endif
+"set colroscheme
+colorscheme base16-default
+set background=dark
 "-------------------------------------------------------------------------------
 "-HIGHLIGHTS--------------------------------------------------------------------
 "UserX highligths for statusbar
@@ -113,11 +118,11 @@ hi User6 guifg=White ctermbg=DarkGrey cterm=bold guifg=White guibg=DarkGrey gui=
 "hi User7 guifg=White ctermbg=DarkGrey cterm=bold
 "hi User8 ctermfg=White ctermbg=DarkGrey cterm=bold
 "hi User9 ctermfg=White ctermbg=DarkGrey cterm=bold
-hi ColorColumn ctermbg=LightGray ctermfg=DarkRed guibg=LightGray guifg=DarkRed
+"hi ColorColumn ctermbg=LightGray ctermfg=DarkRed guibg=LightGray guifg=DarkRed
 "-------------------------------------------------------------------------------
 
 "-MAPPINGS----------------------------------------------------------------------
-"turn off highlighting 
+"turn off highlighting
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 nnoremap g; g;zz
@@ -168,6 +173,26 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$']
 let g:syntastic_mode_map = { 'mode': 'active','passive_filetypes': ['python'] }
 "disable python-mode folding
 let g:pymode_folding=0
+"don't show buffer names in commandline, let airline take care of it
+let g:bufferline_echo=0
+"airline theme
+"let g:airline_theme=
+"show fancy powerline char on airline statusline
+let g:airline_powerline_fonts = 1
+"show short mode indicator in airline
+let g:airline_mode_map={
+      \'__' : '-',
+      \'n' : 'N',
+      \'i' : 'I',
+      \'R' : 'R',
+      \'v' : 'V',
+      \'V' : 'VL',
+      \'' : 'VB',
+      \'c' : 'C',
+      \'s' : 'S',
+      \'S' : 'SL',
+      \'' : 'SB',
+      \}
 "snippets information
 let g:snips_author='Tiago Polizelli Brait'
 let g:snips_company='Tiago Polizelli Brait'
