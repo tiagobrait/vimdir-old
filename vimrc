@@ -100,7 +100,7 @@ else
   if $TERM == "linux"
     "solarized has an 8-color-ready scheme (kinda ugly, but ok)
    let g:airline_theme='solarized'
-   set background=dark 
+   set background=dark
   else
     "set colroscheme
     colorscheme base16-default
