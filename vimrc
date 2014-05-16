@@ -97,15 +97,18 @@ if has("gui_running")
   set guioptions+=m
   set listchars=tab:▸\ ,eol:¬
 else
-"  if $TERM == "linux"
-"    set t_Co=8
-"  else
-"    set t_Co=256
-"  endif
+  if $TERM == "linux"
+    "solarized has an 8-color-ready scheme (kinda ugly, but ok)
+   let g:airline_theme='solarized'
+   set background=dark 
+  else
+    "set colroscheme
+    colorscheme base16-default
+    set background=dark
+    "show fancy powerline char on airline statusline
+    let g:airline_powerline_fonts = 1
+  endif
 endif
-"set colroscheme
-colorscheme base16-default
-set background=dark
 "-------------------------------------------------------------------------------
 "-HIGHLIGHTS--------------------------------------------------------------------
 "UserX highligths for statusbar
@@ -177,8 +180,6 @@ let g:pymode_folding=0
 let g:bufferline_echo=0
 "airline theme
 "let g:airline_theme=
-"show fancy powerline char on airline statusline
-let g:airline_powerline_fonts = 1
 "show short mode indicator in airline
 let g:airline_mode_map={
       \'__' : '-',
