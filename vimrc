@@ -86,33 +86,34 @@ set wrapmargin=0
 set nolinebreak
 " Removing scrollbars from gui mode
 if has("gui_running")
-    set guitablabel=%-0.12t%M
-    set guioptions-=T
-    set guioptions-=r
-    set guioptions-=L
-    set guioptions+=a
-    set guioptions+=m
-    set listchars=tab:▸\ ,eol:¬       
+  set guifont=DejaVu\ Sans\ Mono\ 10
+  set guitablabel=%-0.12t%M
+  set guioptions-=T
+  set guioptions-=r
+  set guioptions-=L
+  set guioptions+=a
+  set guioptions+=m
+  set listchars=tab:▸\ ,eol:¬       
 else
-    if $TERM == "linux"
-        set t_Co=8
-    else
-        set t_Co=256
-    endif
+  if $TERM == "linux"
+    set t_Co=8
+  else
+    set t_Co=256
+  endif
 endif
 "-------------------------------------------------------------------------------
 "-HIGHLIGHTS--------------------------------------------------------------------
 "UserX highligths for statusbar
-hi User1 ctermfg=Yellow ctermbg=DarkRed cterm=bold
-hi User2 ctermfg=White ctermbg=DarkYellow cterm=bold
-hi User3 ctermfg=White ctermbg=DarkBlue cterm=bold
-hi User4 ctermfg=White ctermbg=DarkMagenta cterm=bold
-hi User5 ctermfg=White ctermbg=DarkGreen cterm=bold
-hi User6 ctermfg=White ctermbg=DarkGrey cterm=bold
-"hi User7 ctermfg=White ctermbg=DarkGrey cterm=bold
+hi User1 ctermfg=Yellow ctermbg=DarkRed cterm=bold guifg=Yellow guibg=DarkRed gui=bold
+hi User2 ctermfg=White ctermbg=DarkYellow cterm=bold guifg=White guibg=#B26818 gui=bold
+hi User3 ctermfg=White ctermbg=DarkBlue cterm=bold guifg=White guibg=DarkBlue gui=bold
+hi User4 ctermfg=White ctermbg=DarkMagenta cterm=bold guifg=White guibg=DarkMagenta gui=bold
+hi User5 ctermfg=White ctermbg=DarkGreen cterm=bold guifg=White guibg=DarkGreen gui=bold
+hi User6 guifg=White ctermbg=DarkGrey cterm=bold guifg=White guibg=DarkGrey gui=bold
+"hi User7 guifg=White ctermbg=DarkGrey cterm=bold
 "hi User8 ctermfg=White ctermbg=DarkGrey cterm=bold
 "hi User9 ctermfg=White ctermbg=DarkGrey cterm=bold
-hi ColorColumn ctermbg=LightGray
+hi ColorColumn ctermbg=LightGray ctermfg=DarkRed guibg=LightGray guifg=DarkRed
 "-------------------------------------------------------------------------------
 
 "-MAPPINGS----------------------------------------------------------------------
@@ -133,7 +134,7 @@ imap <leader>l <ESC>:TagbarToggle<cr>i
 "-------------------------------------------------------------------------------
 
 "-AUTOCOMMANDS------------------------------------------------------------------
-au FocusLost * :wa
+"au FocusLost * silent! :wa
 " Working with split screen nicely
 " Resize Split When the window is resized"
 au VimResized * :wincmd =
