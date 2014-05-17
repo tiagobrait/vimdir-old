@@ -1,5 +1,5 @@
 "vimrc
-"2012,2013 tiagobrait
+"2012-14 tiagobrait
 " (with some stuff borrowed from https://github.com/haridas/Dotfiles)
 
 "ok, let's organize this stuff now
@@ -86,7 +86,7 @@ set wrapmargin=0
 set nolinebreak
 "don't wait too much to complete when reading keycodes
 set ttimeoutlen=20
-" Removing scrollbars from gui mode
+"set terminal an gui stuff
 if has("gui_running")
   set guifont=DejaVu\ Sans\ Mono\ 10
   set guitablabel=%-0.12t%M
@@ -96,17 +96,27 @@ if has("gui_running")
   set guioptions+=a
   set guioptions+=m
   set listchars=tab:▸\ ,eol:¬
+  "set colroscheme
+  colorscheme base16-default
+  set background=dark
+  "show fancy powerline char on airline statusline
+  let g:airline_powerline_fonts = 1
 else
   if $TERM == "linux"
     "solarized has an 8-color-ready scheme (kinda ugly, but ok)
    let g:airline_theme='solarized'
    set background=dark
   else
+    "show fancy powerline char on airline statusline
+    let g:airline_powerline_fonts = 1
+    "use base16 with 256 colors
+    let base16colorspace=256
     "set colroscheme
     colorscheme base16-default
     set background=dark
-    "show fancy powerline char on airline statusline
-    let g:airline_powerline_fonts = 1
+  if $COLORTERM != ""
+    set t_Co=256
+  endif
   endif
 endif
 "-------------------------------------------------------------------------------
@@ -128,6 +138,7 @@ hi User6 guifg=White ctermbg=DarkGrey cterm=bold guifg=White guibg=DarkGrey gui=
 "turn off highlighting
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
+nnoremap <leader>s <ESC>:%s/\s\+$//g<cr>
 nnoremap g; g;zz
 nnoremap / /\v
 vnoremap / /\v
