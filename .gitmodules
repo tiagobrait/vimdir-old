@@ -53,9 +53,6 @@
 	path = bundle/xterm-color-table
   url = https://github.com/guns/xterm-color-table.vim.git
   ignore=dirty
-[submodule "bundle/vim-bufferline"]
-	path = bundle/vim-bufferline
-	url = https://github.com/bling/vim-bufferline.git
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
