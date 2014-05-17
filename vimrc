@@ -182,6 +182,8 @@ augroup END
 "-------------------------------------------------------------------------------
 
 "-VARS--------------------------------------------------------------------------
+"airline tabline
+let g:airline#extensions#tabline#enabled=1
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$']
 "disable Syntastic active checking for python:
 let g:syntastic_mode_map = { 'mode': 'active','passive_filetypes': ['python'] }
