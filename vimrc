@@ -101,6 +101,8 @@ if has("gui_running")
   set background=dark
   "show fancy powerline char on airline statusline
   let g:airline_powerline_fonts = 1
+    let g:indentLine_color_gui = '#5fdfff' 
+    let g:indentLine_char = '│'
 else
   if $TERM == "linux"
     "solarized has an 8-color-ready scheme (kinda ugly, but ok)
@@ -114,6 +116,8 @@ else
     "set colroscheme
     colorscheme base16-default
     set background=dark
+    let g:indentLine_color_term = 81
+    let g:indentLine_char = '│'
   if $COLORTERM != ""
     set t_Co=256
   endif
