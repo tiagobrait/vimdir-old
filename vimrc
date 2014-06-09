@@ -87,11 +87,14 @@ set nolinebreak
 "don't wait too much to complete when reading keycodes
 set ttimeoutlen=20
 "enable indent guides plugin at startup
-let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_enable_on_vim_startup = 1
 "indent guides filetype exclusion list
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+"disable autocolors for indent guides
+let g:indent_guides_auto_colors = 0
 "indent guide width
 let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 "set terminal an gui stuff
 if has("gui_running")
   set guifont=DejaVu\ Sans\ Mono\ 10
@@ -127,6 +130,9 @@ else
 endif
 "-------------------------------------------------------------------------------
 "-HIGHLIGHTS--------------------------------------------------------------------
+hi IndentGuidesOdd ctermbg=19 guibg=#303030
+hi IndentGuidesEven ctermbg=238 guibg=#444444
+
 "UserX highligths for statusbar
 hi User1 ctermfg=Yellow ctermbg=DarkRed cterm=bold guifg=Yellow guibg=DarkRed gui=bold
 hi User2 ctermfg=White ctermbg=DarkYellow cterm=bold guifg=White guibg=#B26818 gui=bold
