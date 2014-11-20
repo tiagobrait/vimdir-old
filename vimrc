@@ -113,8 +113,9 @@ if has("gui_running")
 else
   if $TERM == "linux"
     "solarized has an 8-color-ready scheme (kinda ugly, but ok)
-   let g:airline_theme='solarized'
-   set background=dark
+    "let g:airline_theme='solarized'
+    colorscheme base16-default 
+    set background=dark
   else
     "show fancy powerline char on airline statusline
     let g:airline_powerline_fonts = 1
@@ -123,9 +124,9 @@ else
     "set colroscheme
     colorscheme base16-default
     set background=dark
-  if $COLORTERM != ""
-    set t_Co=256
-  endif
+    if $COLORTERM != ""
+      set t_Co=256
+    endif
   endif
 endif
 "-------------------------------------------------------------------------------
@@ -160,8 +161,8 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <C-n> :NERDTreeToggle<cr>
 vnoremap <tab> %
 "TagBar
-nmap <leader>l <ESC>:TagbarToggle<cr>
-imap <leader>l <ESC>:TagbarToggle<cr>i
+nmap <leader>T <ESC>:TagbarToggle<cr>
+imap <leader>T <ESC>:TagbarToggle<cr>i
 "-------------------------------------------------------------------------------
 
 "-AUTOCOMMANDS------------------------------------------------------------------
