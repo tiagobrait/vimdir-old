@@ -1,20 +1,28 @@
 "vimpagerrc
-"2013 tiagobrait 
+"2013 tiagobrait
+
+colorscheme base16-default
+set t_Co=256
 
 "some useful options
+set noloadplugins
 set nocompatible
 set ttyfast
 set laststatus=2
-set statusline=%Y%=\ line\ %l\ of\ %L\ (%P) 
+set statusline=%Y%=\ line\ %l\ of\ %L\ (%P)
 set shell=/bin/bash
 set lazyredraw
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set background=dark
 
+"vimpager specific
 let vimpager_disable_x11=1
-let vimpager_passthrough = 1
+let vimpager_scroloff=3
+"let vimpager_disable_ansiesc=1
+"let vimpager_passthrough=1
 
 nnoremap <leader><space> :noh<cr>
 nnoremap / /\v
@@ -23,21 +31,26 @@ vnoremap / /\v
 "custom highlights
 
 "man
-hi manTitle ctermfg=DarkMagenta cterm=bold
-hi manReference ctermfg=DarkMagenta cterm=bold
-hi manSectionHeading ctermfg=DarkBlue cterm=bold
-hi manSubHeading ctermfg=Brown cterm=bold
-hi manOptionDesc ctermfg=DarkRed cterm=bold
-hi manLongOptionDesc ctermfg=DarkRed cterm=bold
-hi CFuncDefinition ctermfg=DarkBlue 
+"hi manTitle ctermfg=DarkMagenta cterm=bold
+"hi manReference ctermfg=DarkMagenta cterm=bold
+"hi manSectionHeading ctermfg=DarkBlue cterm=bold
+"hi manSubHeading ctermfg=Brown cterm=bold
+"hi manOptionDesc ctermfg=DarkRed cterm=bold
+"hi manLongOptionDesc ctermfg=DarkRed cterm=bold
+"hi CFuncDefinition ctermfg=DarkBlue
 
 "diff
-hi diffAdded ctermfg=DarkBlue cterm=bold
-hi diffFile ctermfg=DarkBlue cterm=bold
-hi diffOldfile ctermfg=DarkBlue cterm=bold
-hi diffRemoved ctermfg=DarkRed cterm=bold
-hi diffNewFile ctermfg=DarkRed cterm=bold
-hi diffLine ctermfg=DarkMagenta cterm=bold 
+hi diffFile cterm=bold ctermbg=0
+hi diffNewFile cterm=bold ctermbg=0
+hi diffAdded ctermfg=DarkBlue ctermbg=0
+hi diffRemoved ctermfg=DarkRed ctermbg=0
+hi diffOldfile ctermfg=DarkBlue ctermbg=0
+hi diffLine ctermfg=DarkMagenta ctermbg=0
+hi diffSubname ctermfg=DarkGreen ctermbg=0
+
+"because i'm way too lazy to check out what the problem with the statusline
+"color actually is
+hi StatusLine term=bold,reverse ctermfg=7 ctermbg=19 guifg=#b8b8b8 guibg=#383838
 
 "map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 "\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"

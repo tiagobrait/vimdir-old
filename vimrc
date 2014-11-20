@@ -114,7 +114,7 @@ else
   if $TERM == "linux"
     "solarized has an 8-color-ready scheme (kinda ugly, but ok)
     "let g:airline_theme='solarized'
-    colorscheme base16-default 
+    colorscheme base16-default
     set background=dark
   else
     "show fancy powerline char on airline statusline
@@ -205,7 +205,7 @@ let g:pymode_folding=0
 "don't show buffer names in commandline, let airline take care of it
 let g:bufferline_echo=0
 "airline theme
-"let g:airline_theme=
+"let g:airline_theme='base16'
 "show short mode indicator in airline
 let g:airline_mode_map={
       \'__' : '-',
