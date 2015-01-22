@@ -8,7 +8,6 @@
 "-PATHOGEN----------------------------------------------------------------------
 filetype off
 execute pathogen#infect()
-execute pathogen#helptags()
 filetype plugin indent on
 syntax on
 "-------------------------------------------------------------------------------
@@ -95,6 +94,7 @@ let g:indent_guides_auto_colors = 0
 "indent guide width
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+
 "set terminal an gui stuff
 if has("gui_running")
   set guifont=DejaVu\ Sans\ Mono\ 10
@@ -198,6 +198,10 @@ augroup END
 "airline tabline
 let g:airline#extensions#tabline#enabled=1
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$']
+"not check on wq
+let g:syntastic_check_on_wq = 0
+"js linter
+let g:syntastic_javascript_checkers = ["gjslint"]
 "disable Syntastic active checking for python:
 let g:syntastic_mode_map = { 'mode': 'active','passive_filetypes': ['python'] }
 "disable python-mode folding
