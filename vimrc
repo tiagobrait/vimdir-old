@@ -130,8 +130,9 @@ else
     let base16colorspace=256
     "set colroscheme
     "airline theming is really annoying :(
+    let g:airline_theme="base16"
     colorscheme base16-default
-    "set background=dark
+    set background=dark
     if $COLORTERM != ""
       set t_Co=256
     endif
