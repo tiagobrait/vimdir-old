@@ -12,6 +12,11 @@ filetype plugin indent on
 syntax on
 "-------------------------------------------------------------------------------
 
+"UNITE CALLS--------------------------------------------------------------------
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+"-------------------------------------------------------------------------------
+
 "-OPTIONS-----------------------------------------------------------------------
 "use vim settings instead of vi
 set nocompatible
@@ -85,6 +90,7 @@ set wrapmargin=0
 set nolinebreak
 "don't wait too much to complete when reading keycodes
 set ttimeoutlen=20
+set listchars=tab:▸\ ,eol:¬
 "enable indent guides plugin at startup
 "let g:indent_guides_enable_on_vim_startup = 1
 "indent guides filetype exclusion list
@@ -94,6 +100,8 @@ let g:indent_guides_auto_colors = 0
 "indent guide width
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+"unite stuff
+let g:unite_source_history_yank_enable = 1
 
 "set terminal an gui stuff
 if has("gui_running")
@@ -104,16 +112,15 @@ if has("gui_running")
   set guioptions-=L
   set guioptions+=a
   set guioptions+=m
-  set listchars=tab:▸\ ,eol:¬
   "set colroscheme
-  colorscheme base16-default
-  set background=dark
+  "colorscheme base16-default
+  "set background=dark
   "show fancy powerline char on airline statusline
-  let g:airline_powerline_fonts = 1
+  "let g:airline_powerline_fonts = 1
 else
   if $TERM == "linux"
-    "solarized has an 8-color-ready scheme (kinda ugly, but ok)
-    "let g:airline_theme='solarized'
+    solarized has an 8-color-ready scheme (kinda ugly, but ok)
+    let g:airline_theme='solarized'
     colorscheme base16-default
     set background=dark
   else
@@ -122,8 +129,9 @@ else
     "use base16 with 256 colors
     let base16colorspace=256
     "set colroscheme
+    "airline theming is really annoying :(
     colorscheme base16-default
-    set background=dark
+    "set background=dark
     if $COLORTERM != ""
       set t_Co=256
     endif
@@ -148,10 +156,17 @@ hi User6 guifg=White ctermbg=DarkGrey cterm=bold guifg=White guibg=DarkGrey gui=
 "-------------------------------------------------------------------------------
 
 "-MAPPINGS----------------------------------------------------------------------
+"sweet mother of unite
+nnoremap <leader>uf <ESC>:<C-u>Unite -start-insert -prompt=▶ file_rec/async<cr>
+nnoremap <leader>ug <ESC>:<C-u>Unite -start-insert -prompt=▶ file_rec/git<cr>
+nnoremap <leader>ub <ESC>:<C-u>Unite -start-insert -prompt=▶ buffer<cr>
+nnoremap <leader>uy <ESC>:<C-u>Unite -start-insert -prompt=▶ history/yank<cr>
+nnoremap <leader>um <ESC>:<C-u>Unite -start-insert -prompt=▶ file_mru<cr>
 "turn off highlighting
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader><space> <ESC>:<C-u>noh<cr>
+nnoremap <leader>l <ESC>:<C-u>set list!<cr>
 nnoremap <tab> %
-nnoremap <leader>s <ESC>:%s/\s\+$//g<cr>
+nnoremap <leader>s <ESC>:<C-u>%s/\s\+$//g<cr>
 nnoremap g; g;zz
 nnoremap / /\v
 vnoremap / /\v
@@ -163,6 +178,9 @@ vnoremap <tab> %
 "TagBar
 nmap <leader>T <ESC>:TagbarToggle<cr>
 imap <leader>T <ESC>:TagbarToggle<cr>i
+"misc
+nnoremap <leader>q <ESC>:<C-u>bd<cr>
+
 "-------------------------------------------------------------------------------
 
 "-AUTOCOMMANDS------------------------------------------------------------------
@@ -200,8 +218,10 @@ let g:airline#extensions#tabline#enabled=1
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$']
 "not check on wq
 let g:syntastic_check_on_wq = 0
-"js linter
-let g:syntastic_javascript_checkers = ["gjslint"]
+"set specific linters
+let g:syntastic_javascript_checkers = ["jshint"]
+let g:syntastic_css_checkers = ["csslint"]
+let g:syntastic_html_checkers = ["tidy"]
 "disable Syntastic active checking for python:
 let g:syntastic_mode_map = { 'mode': 'active','passive_filetypes': ['python'] }
 "disable python-mode folding
@@ -209,7 +229,6 @@ let g:pymode_folding=0
 "don't show buffer names in commandline, let airline take care of it
 let g:bufferline_echo=0
 "airline theme
-"let g:airline_theme='base16'
 "show short mode indicator in airline
 let g:airline_mode_map={
       \'__' : '-',
