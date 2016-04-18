@@ -92,3 +92,9 @@
 [submodule "bundle/vim-systemd-syntax"]
 	path = bundle/vim-systemd-syntax
 	url = https://github.com/Matt-Deacalion/vim-systemd-syntax.git
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "bundle/vim-angular"]
+	path = bundle/vim-angular
+	url = https://github.com/burnettk/vim-angular.git
