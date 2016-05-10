@@ -1,0 +1,73 @@
+snippet ngm
+	(function(){'use strict';
+
+		angular
+			.module('${1:module}',
+				'${2:dependencies}'
+			]);
+
+	})();
+
+snippet ngc
+	(function(){'use strict';
+
+		angular
+			.module('${1:module}')
+			.controller('${2:Controller}Controller', $2Controller);
+
+		function $2Controller(${3:dependencies}){
+			var vm = this;
+			vm.title = '$2Controller'
+
+			activate();
+
+			/**********************************/
+
+			function activate(){
+
+			}
+
+		}
+
+	})();
+
+snippet ngs
+	(function(){'use strict';
+
+	angular
+		.module('${1:module}')
+		.service('${2:Service}', $2)
+
+		function $2(${3:dependencies}) {
+			this.${4:func} = $4;
+
+			/**********************************/
+
+			function $4(){
+
+			}
+		}
+
+	})();
+
+snippet ngf
+	(function(){'use strict';
+
+	angular
+		.module('${1:module}')
+		.factory('${2:factory}', $2)
+
+		function $2(${3:dependencies}) {
+			var service = {
+				${4:func} = $4;
+			};
+			return service;
+			/**********************************/
+
+			function $4(){
+
+			}
+		}
+
+	})();
+
