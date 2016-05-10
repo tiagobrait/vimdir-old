@@ -94,7 +94,7 @@ set listchars=tab:▸\ ,eol:¬
 "enable indent guides plugin at startup
 "let g:indent_guides_enable_on_vim_startup = 1
 "indent guides filetype exclusion list
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_exclude_filetypes = ['help']
 "disable autocolors for indent guides
 let g:indent_guides_auto_colors = 0
 "indent guide width
@@ -102,7 +102,8 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 "unite stuff
 let g:unite_source_history_yank_enable = 1
-
+"let b:javascript_fold = 'true'
+let g:angular_filename_convention = 'camelcased'
 "set terminal an gui stuff
 if has("gui_running")
   set guifont=DejaVu\ Sans\ Mono\ 10
@@ -165,23 +166,28 @@ nnoremap <leader>uy <ESC>:<C-u>Unite -start-insert -prompt=▶ history/yank<cr>
 nnoremap <leader>um <ESC>:<C-u>Unite -start-insert -prompt=▶ file_mru<cr>
 "turn off highlighting
 nnoremap <leader><space> <ESC>:<C-u>noh<cr>
-nnoremap <leader>l <ESC>:<C-u>set list!<cr>
+nnoremap <leader>L <ESC>:<C-u>set list!<cr>
 nnoremap <tab> %
-nnoremap <leader>s <ESC>:<C-u>%s/\s\+$//g<cr>
 nnoremap g; g;zz
 nnoremap / /\v
 vnoremap / /\v
+"tagbar
+nmap <leader>T :TagbarToggle<CR>
+imap <leader>T <ESC>:TagbarToggle<CR>i
 " <leader>ev Shortcut to edit .vimrc file on the fly on a vertical window.
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
-"NERDTree
-nnoremap <C-n> :NERDTreeToggle<cr>
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<CR>
 vnoremap <tab> %
-"TagBar
-nmap <leader>T <ESC>:TagbarToggle<cr>
-imap <leader>T <ESC>:TagbarToggle<cr>i
-"misc
-nnoremap <leader>q <ESC>:<C-u>bd<cr>
-
+"navigating through buffers with a little more ease
+nmap <leader>] :bnext<CR>
+nmap <leader>[ :bprevious<CR>
+nmap <leader>t :enew<CR>
+nmap <leader>q :bp <BAR> :bd #<CR>
+nmap <leader>Q :bp <BAR> :bd! #<CR>
+"quick and dirty way to remove trailing spaces (a little better than the
+"previous one)
+nmap <leader>S :let __ls=@/ <BAR> :%s#\s\+$##g <BAR> :let @/=__ls <BAR> :noh <CR>
+"open help in a new tab
+nmap <F1> :tab h<CR>
 "-------------------------------------------------------------------------------
 
 "-AUTOCOMMANDS------------------------------------------------------------------
@@ -216,7 +222,6 @@ augroup END
 "-VARS--------------------------------------------------------------------------
 "airline tabline
 let g:airline#extensions#tabline#enabled=1
-let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$']
 "not check on wq
 let g:syntastic_check_on_wq = 0
 "set specific linters
@@ -249,8 +254,10 @@ let g:snips_author='Tiago Polizelli Brait'
 let g:snips_company='Tiago Polizelli Brait'
 let g:snips_email='tiagobrait@gmail.com'
 let g:snips_github='https://github.com/tiagobrait'
+let g:snips_nick='tiagobrait'
 let g:author='Tiago Polizelli Brait'
 let g:company='Tiago Polizelli Brait'
 let g:email='tiagobrait@gmail.com'
 let g:github='https://github.com/tiagobrait'
+
 "-------------------------------------------------------------------------------
