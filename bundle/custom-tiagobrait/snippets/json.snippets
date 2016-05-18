@@ -2,25 +2,20 @@ snippet khv
 	"${1}": {
 		${2}
 	}
-
 snippet kv
 	"${1}": "${2}"
-
 snippet s
 	"${1}": {
 					"type": "string"
 	}
-
 snippet t
 	"${1}": {
 					"type": "time"
 	}
-
 snippet a
 	"${1}": {
 					"type": "array"
 	}
-
 snippet object
 	"${1}": {
 					"type": "object",
@@ -28,7 +23,6 @@ snippet object
 						${2}
 					}
 	}
-
 snippet oarray
 	"${1}": {
 		"type": "array",
@@ -38,4 +32,24 @@ snippet oarray
 					${2}
 				}
 		}
+	}
+snippet id
+	"id": {
+		"type": "string",
+		"id": true,
+		"defaultFn": "uuidv4",
+		"postgresql": {
+			"nullable": "NO",
+			"dataType": "character varying",
+			"dataLength": 36
+		}
+	},
+snippet tstp
+	"created": {
+		"type": "date",
+		"required": true
+	},
+	"lastUpdated": {
+		"type": "date",
+		"required": true
 	}

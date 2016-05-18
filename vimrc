@@ -27,7 +27,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set encoding=utf-8
+set encoding=utf8
 "show next 3 lines below the current one when scrolling
 set scrolloff=3
 set autoindent
@@ -104,20 +104,23 @@ let g:indent_guides_start_level = 2
 let g:unite_source_history_yank_enable = 1
 "let b:javascript_fold = 'true'
 let g:angular_filename_convention = 'camelcased'
+let g:netrw_liststyle=3
 "set terminal an gui stuff
 if has("gui_running")
-  set guifont=DejaVu\ Sans\ Mono\ 10
+  set guifont=Inconsolata\-dz\ for\ Powerline\ 10
   set guitablabel=%-0.12t%M
   set guioptions-=T
   set guioptions-=r
+  set guioptions-=F
   set guioptions-=L
   set guioptions+=a
-  set guioptions+=m
+  set guioptions-=m
   "set colroscheme
-  "colorscheme base16-default
-  "set background=dark
+  set background=dark
+  let g:airline_theme="base16"
+  colorscheme base16-default
   "show fancy powerline char on airline statusline
-  "let g:airline_powerline_fonts = 1
+  let g:airline_powerline_fonts = 1
 else
   if $TERM == "linux"
     solarized has an 8-color-ready scheme (kinda ugly, but ok)
@@ -184,8 +187,9 @@ nmap <leader>t :enew<CR>
 nmap <leader>q :bp <BAR> :bd #<CR>
 nmap <leader>Q :bp <BAR> :bd! #<CR>
 "quick and dirty way to remove trailing spaces (a little better than the
-"previous one)
 nmap <leader>S :let __ls=@/ <BAR> :%s#\s\+$##g <BAR> :let @/=__ls <BAR> :noh <CR>
+nmap <leader>e :Explore<CR>
+nmap <leader>E :Vexplore<CR>
 "open help in a new tab
 nmap <F1> :tab h<CR>
 "-------------------------------------------------------------------------------
