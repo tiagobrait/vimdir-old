@@ -45,11 +45,11 @@ snippet id
 		}
 	},
 snippet tstp
-	"created": {
-		"type": "date",
-		"required": true
+	"mixins": {
+		"TimeStamp" : {
+			"createdAt" : "created",
+			"updatedAt" : "lastUpdated",
+			"required" : false,
+			"validateUpsert": true
+		}
 	},
-	"lastUpdated": {
-		"type": "date",
-		"required": true
-	}
